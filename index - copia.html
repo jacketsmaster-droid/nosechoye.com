@@ -447,7 +447,7 @@
                                 <span class="text-xl md:text-3xl font-bold text-red-600 mb-2 md:mb-0">₡118&nbsp;500</span>
                                 <span class="bg-red-600 text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-bold uppercase self-start">jackets</span>
                             </div>
-                            <div class="mb-3 md:mb-6">
+                            <div class="mb-3 md:mb-6 hidden">
                                 <span class="text-sm md:text-lg text-gray-700 font-semibold">Tallas: S, M, L, XL, XXL</span>
                             </div>
                             <button onclick="event.stopPropagation(); contactForProduct('Hyper Tec 2.0 Cortech')" class="w-full btn-primary text-white py-2 md:py-3 rounded-lg font-bold text-sm md:text-lg">
@@ -23215,8 +23215,6 @@ Revestimiento de ...</p>
                         if (!product.price || product.price <= 0) errors.push(`Producto ${index + 1}: Precio inválido`);
                         if (!product.category) errors.push(`Producto ${index + 1}: Falta categoría`);
                         if (!product.brand) errors.push(`Producto ${index + 1}: Falta marca`);
-                        if (!product.sizes || !Array.isArray(product.sizes) || product.sizes.length === 0) {
-                            errors.push(`Producto ${index + 1}: Falta tallas válidas`);
                         }
                     });
                 }
@@ -24299,10 +24297,6 @@ Thumbs.db
                 
                 if (!brands.find(b => b.id === product.brand)) {
                     issues.push(`Producto "${product.name}" tiene marca inválida: ${product.brand}`);
-                }
-                
-                if (!product.sizes || product.sizes.length === 0) {
-                    issues.push(`Producto "${product.name}" no tiene tallas definidas`);
                 }
                 
                 if (!product.price || product.price <= 0) {
