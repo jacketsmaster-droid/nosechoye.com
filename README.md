@@ -1,2 +1,0 @@
-# nosechoye.com
-noseraspe.com
